@@ -2,7 +2,7 @@
 var { Items } = require('../models/itemModel');
 
 exports.getItemByLootTable = (req, res) => {
-  Items.find({ skill: req.body.skill, rarity: { $in: req.body.rarity } }, (err, docs) => {
+  Items.find({ skill: req.body.data.skill, rarity: { $in: req.body.data.rarity } }, (err, docs) => {
     if (!err) {
       res.send(docs)
     } else {
