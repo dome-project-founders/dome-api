@@ -8,7 +8,8 @@ const PORT = process.env.PORT || 3001 ;
 const landRoutes = require('./routes/land');
 const userRoutes = require('./routes/user');
 const charRoutes = require('./routes/char');
-const lootRoutes = require('./routes/loot');
+const itemRoutes = require('./routes/item');
+const actionRoutes = require('./routes/action');
  
 // database connection
 require('./config/database.js');
@@ -21,7 +22,8 @@ app.use(bodyParser.json());
 app.use('/api/land', landRoutes);
 app.use('/api/user', userRoutes);
 app.use('/api/char', charRoutes);
-app.use('/api/loot', lootRoutes);
+app.use('/api/item', itemRoutes);
+app.use('/api/action', actionRoutes);
  
 // server running status
 app.listen(PORT, () => {
