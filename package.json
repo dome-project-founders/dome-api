@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js"
-    },
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dome-project-founders/dome-api.git"
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/dome-project-founders/dome-api#readme",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "body-parser": "^1.20.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
