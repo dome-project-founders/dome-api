@@ -12,7 +12,7 @@ exports.getAllChars = (req, res ) => {
 };
 
 exports.getChar = (req, res ) => {
-    Chars.findOne({ username:req.params.username }, (err, result) => {
+    Chars.findOne({ userId:req.params.userId }, (err, result) => {
     if (!err) {
       res.send(result)
     } else {
@@ -26,7 +26,7 @@ exports.getChar = (req, res ) => {
 exports.setChar = (req, res ) => {
 
     const data = {
-        username: req.body.username,
+        userId: req.body.userId,
         location: Math.floor(Math.random() * 15)
     }
 
@@ -46,7 +46,7 @@ exports.setCharLocation = (req, res ) => {
   const data = {
       location: req.body.location,
   }
-  Chars.findOneAndUpdate({ username:req.params.username }, { location:req.body.location }, (err, result) => {
+  Chars.findOneAndUpdate({ userId:req.params.userId }, { location:req.body.location }, (err, result) => {
     if (!err) {
       console.log(req.body);
       res.send(result);

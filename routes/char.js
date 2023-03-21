@@ -6,10 +6,10 @@ const charControllers = require('../controllers/charController')
  
 router.get('/', charControllers.getAllChars);
 
-router.get('/:username', charControllers.getChar);
+router.get('/:userId', charControllers.getChar);
 
 router.post('/', charControllers.setChar);
 
-router.put('/location/:username', charControllers.setCharLocation);
+router.put('/location/:userId', charControllers.setCharLocation);
  
 module.exports = router;
