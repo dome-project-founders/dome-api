@@ -24,3 +24,21 @@ exports.setInventory = (req, res ) => {
   }
 })
 };
+
+exports.createInventory = (req, res ) => {
+
+  const data = {
+      userId: req.body.userId,
+      items: []
+  }
+
+  const inventory = new Inventories(data);
+
+  inventory.save((err, docs) => {
+      if (!err) {
+        res.send(docs)
+      } else {
+        res.status(500).send(err)
+      }
+    })
+};

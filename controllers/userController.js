@@ -32,3 +32,51 @@ exports.setUser = (req, res) => {
     })
   });
 };
+
+exports.checkUsername = (req,res) => {
+  Users.findOne({ username:req.params.name }, (err, result) => {
+    if (!err) {
+      res.send(result)
+    } else {
+      res.status(500).send((err)=> {
+        console.log(err);
+      })
+    }
+  })
+}
+
+exports.checkEmail = (req,res) => {
+  Users.findOne({ email:req.params.email }, (err, result) => {
+    if (!err) {
+      res.send(result)
+    } else {
+      res.status(500).send((err)=> {
+        console.log(err);
+      })
+    }
+  })
+}
+
+exports.login = (req,res) => {
+  Users.findOne({ email:req.body.email }, (err, result) => {
+    if (!err) {
+      if(result) {
+        bcrypt.compare(req.body.password, result.password).then((hash) => {
+          if(hash) {
+            res.send(result);
+          }
+          else {
+            res.status(500).send("Invalid login");
+          }
+        });
+      }
+      else {
+        res.status(500).send("Invalid login");
+      }
+    } else {
+      res.status(500).send((err)=> {
+        console.log(err);
+      })
+    }
+  })
+}

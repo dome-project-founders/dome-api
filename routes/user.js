@@ -8,5 +8,10 @@ router.get('/', userControllers.getAllUsers);
 
 router.post('/', userControllers.setUser);
 
- 
+router.get('/checkUsername/:name', userControllers.checkUsername);
+
+router.get('/checkEmail/:email', userControllers.checkEmail);
+
+router.post('/login', userControllers.login);
+
 module.exports = router;

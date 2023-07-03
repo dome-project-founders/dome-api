@@ -27,7 +27,8 @@ exports.setChar = (req, res ) => {
 
     const data = {
         userId: req.body.userId,
-        location: Math.floor(Math.random() * 15)
+        username: req.body.username,
+        location: Math.floor(Math.random() * 14) + 1
     }
 
     const char = new Chars(data);
